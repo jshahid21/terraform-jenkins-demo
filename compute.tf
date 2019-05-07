@@ -22,12 +22,15 @@ resource "oci_core_instance" "tajVM" {
   }
 }
 
-data "oci_core_instance" "tajVM" {
-    #Required
+data "oci_core_vnic_attachments" "vnics" {
+    compartment_id = "${var.compartment_ocid}"
     instance_id = "${oci_core_instance.tajVM.id}"
 }
 
+data "oci_core_vnic" "vnic" {
+vnic_id = "${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"
+}
 
-output "oci_core_instance" "tajVM" {
-    value = ["${oci_core_instance.tajVM.public_ip}"]
+output "public_ip" {
+    value = ["${oci_core_vnic.vnic.public_ip_address}"]
 }
