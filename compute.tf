@@ -24,7 +24,7 @@ resource "oci_core_instance" "tajVM" {
 
 data "oci_core_instance" "tajVM" {
     #Required
-    instance_id = "${oci_core_instance.tajVM.instance_id.id}"
+    instance_id = "${oci_core_instance.tajVM.id}"
 }
 
 
