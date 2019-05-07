@@ -21,3 +21,14 @@ resource "oci_core_instance" "tajVM" {
     create = "60m"
   }
 }
+
+data "oci_core_instance" "tajVM" {
+    #Required
+    instance_id = "${oci_core_instance.tajVM.instance_id.id}"
+    public_ip = "${oci_core_instance.tajVM.public_ip.id}"
+}
+
+
+output "oci_core_instance" "tajVM" {
+    value = ["${oci_core_instance.tajVM.public_ip}"]
+}
