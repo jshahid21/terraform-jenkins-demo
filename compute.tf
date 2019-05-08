@@ -32,6 +32,6 @@ data "oci_core_vnic" "vnic" {
     vnic_id = "${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"
 }
 
-output "public_ip" {
+output "public_ip_address" {
     value = ["${oci_core_vnic.vnic.public_ip_address}"]
 }
