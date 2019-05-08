@@ -23,5 +23,5 @@ resource "oci_core_instance" "tajVM" {
 }
 
 output "public_ip" {
-    value = ["${oci_core_vnic.InstanceVnic.public_ip_address}"]
+    value = ["${oci_core_vnic.InstanceVnic.public_ip}"]
 }
