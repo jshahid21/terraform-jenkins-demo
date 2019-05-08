@@ -6,7 +6,7 @@ resource "oci_core_instance" "tajVM" {
 
   source_details {
       source_type = "image"
-      source_id = ["${var.InstanceImageOCID[var.region]}"]
+      source_id = "${var.InstanceImageOCID[var.region]}"
     }
 
   create_vnic_details {
