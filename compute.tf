@@ -2,7 +2,7 @@ resource "oci_core_instance" "tajVM" {
   availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
   compartment_id = "${var.compartment_ocid}"
   display_name = "tajVM"
-  source_details = "${var.InstanceImageOCID[var.region]}"
+  source_details = ["${var.InstanceImageOCID[var.region]}"]
   shape = "${var.InstanceShape}"
 
   create_vnic_details {
