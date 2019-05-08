@@ -22,16 +22,6 @@ resource "oci_core_instance" "tajVM" {
   }
 }
 
-data "oci_core_vnic_attachments" "vnics" {
-    compartment_id = "${var.compartment_ocid}"
-    instance_id = "${oci_core_instance.tajVM.id}"
-    availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
-}
-
-data "oci_core_vnic" "vnic" {
-    vnic_id = "${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"
-}
-
-output "public_ip_address" {
-    value = ["${oci_core_vnic.vnic.public_ip_address}"]
+output "public_ip" {
+    value = ["${oci_core_vnic.InstanceVnic.public_ip}"]
 }
