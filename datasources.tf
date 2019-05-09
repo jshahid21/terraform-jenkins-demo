@@ -23,5 +23,5 @@ data "oci_core_vnic" "vnic" {
 }
 
 output "instance_ip_address" {
-    value = ["${data.oci_core_vnic.vnic.public_ip_address}"]
+    value = "${data.oci_core_vnic.vnic.public_ip_address}"
 }
