@@ -19,9 +19,9 @@ data "oci_core_vnic_attachments" "vnics" {
 
 # Gets the OCID of the first (default) vNIC
 data "oci_core_vnic" "vnic" {
-    vnic_id = ["${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"]
+    vnic_id = "${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"
 }
 
 output "instance_ip_address" {
-    value = "${data.oci_core_vnic.vnic.public_ip_address}"
+    value = ["${data.oci_core_vnic.vnic.public_ip_address}"]
 }
