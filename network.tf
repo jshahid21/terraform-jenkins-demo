@@ -1,10 +1,10 @@
-# resource "oci_core_virtual_network" "tajVCN" {
-#   cidr_block = "10.1.0.0/16"
-#   compartment_id = "${var.compartment_ocid}"
-#   display_name = "APEXvcn"
-#   dns_label = "tajVCN"
-# }
-#
+resource "oci_core_virtual_network" "tajVCN" {
+  cidr_block = "10.1.0.0/16"
+  compartment_id = "${var.compartment_ocid}"
+  display_name = "APEXvcn"
+  dns_label = "tajVCN"
+}
+
 # resource "oci_core_subnet" "tajSN" {
 #   availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
 #   cidr_block = "10.1.20.0/24"
