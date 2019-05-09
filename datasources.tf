@@ -11,13 +11,17 @@ data "oci_identity_availability_domains" "ADs" {
 #
 #
 # Gets a list of vNIC attachments on the instance
-data "oci_core_vnic_attachments" "InstanceVnics" {
+data "oci_core_vnic_attachments" "vnics" {
     compartment_id = "${var.compartment_ocid}"
     availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
     instance_id = "${oci_core_instance.tajVM.id}"
 }
 
 # Gets the OCID of the first (default) vNIC
-data "oci_core_vnic" "InstanceVnic" {
-    vnic_id = "${lookup(data.oci_core_vnic_attachments.InstanceVnic.vnic_attachments[0],"vnic_id")}"
+data "oci_core_vnic" "vnic" {
+    vnic_id = "${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"
+}
+
+output "public_ip" {
+    value = ["${oci_core_vnic.vnic.public_ip}"]
 }

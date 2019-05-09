@@ -25,7 +25,3 @@ resource "oci_core_instance" "tajVM" {
     create = "60m"
   }
 }
-
-output "public_ip" {
-    value = ["${oci_core_vnic.InstanceVnic.public_ip}"]
-}
