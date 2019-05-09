@@ -1,7 +1,7 @@
-Gets a list of Availability Domains
-data "oci_identity_availability_domains" "ADs" {
-    compartment_id = "${var.tenancy_ocid}"
-}
+# Gets a list of Availability Domains
+# data "oci_identity_availability_domains" "ADs" {
+#     compartment_id = "${var.tenancy_ocid}"
+# }
 #
 # # data "oci_core_security_lists" "tajSL" {
 # #     #Required
