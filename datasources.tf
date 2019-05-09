@@ -1,7 +1,7 @@
-# Gets a list of Availability Domains
-# data "oci_identity_availability_domains" "ADs" {
-#     compartment_id = "${var.tenancy_ocid}"
-# }
+Gets a list of Availability Domains
+data "oci_identity_availability_domains" "ADs" {
+    compartment_id = "${var.tenancy_ocid}"
+}
 #
 # # data "oci_core_security_lists" "tajSL" {
 # #     #Required
@@ -19,5 +19,5 @@
 # #
 # # Gets the OCID of the first (default) vNIC
 # data "oci_core_vnic" "InstanceVnic" {
-#     vnic_id = "${lookup(data.oci_core_vnic_attachments.InstanceVnics.vnic_attachments[0],"vnic_id")}"
+#     vnic_id = "${lookup(data.oci_core_vnic_attachments.InstanceVnic.vnic_attachments[0],"vnic_id")}"
 # }
