@@ -8,7 +8,7 @@ resource "oci_core_virtual_network" "tajVCN" {
 resource "oci_core_subnet" "tajSN" {
   availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
   cidr_block = "10.1.20.0/24"
-  display_name = "tajSN"
+  display_name = "APEXsn"
   dns_label = "tajSN"
   security_list_ids = ["${oci_core_security_list.tajSL.id}"]
   compartment_id = "${var.compartment_ocid}"
@@ -19,14 +19,14 @@ resource "oci_core_subnet" "tajSN" {
 
 resource "oci_core_internet_gateway" "tajIG" {
   compartment_id = "${var.compartment_ocid}"
-  display_name = "tajIG"
+  display_name = "APEXig"
   vcn_id = "${oci_core_virtual_network.tajVCN.id}"
 }
 
 resource "oci_core_route_table" "tajRT" {
   compartment_id = "${var.compartment_ocid}"
   vcn_id = "${oci_core_virtual_network.tajVCN.id}"
-  display_name = "tajRT"
+  display_name = "APEXrt"
   route_rules {
     destination = "0.0.0.0/0"
     network_entity_id = "${oci_core_internet_gateway.tajIG.id}"
@@ -36,7 +36,7 @@ resource "oci_core_route_table" "tajRT" {
 resource "oci_core_security_list" "tajSL" {
   compartment_id = "${var.compartment_ocid}"
   vcn_id = "${oci_core_virtual_network.tajVCN.id}"
-  display_name = "tajSL"
+  display_name = "APEXsl"
   egress_security_rules {
     destination = "0.0.0.0/0"
     protocol    = "all"

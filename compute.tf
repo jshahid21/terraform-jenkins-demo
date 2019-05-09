@@ -16,6 +16,8 @@ resource "oci_core_instance" "tajVM" {
     hostname_label = "tajVM"
   }
 
+  freeform_tags = {"Department"= "IaaS"}
+
   metadata {
     ssh_authorized_keys = "${var.ssh_public_key}"
     user_data = "${base64encode(file(var.BootStrapFile))}"
