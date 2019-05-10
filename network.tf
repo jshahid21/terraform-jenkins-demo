@@ -1,7 +1,7 @@
 resource "oci_core_virtual_network" "tajVCN" {
   cidr_block = "10.1.0.0/16"
   compartment_id = "${var.compartment_ocid}"
-  display_name = "APEXvcn"
+  display_name = "APEXvcnTEST"
   dns_label = "tajVCN"
 }
 
