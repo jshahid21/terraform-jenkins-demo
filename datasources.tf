@@ -10,7 +10,7 @@ data "oci_identity_availability_domains" "ADs" {
 # }
 #
 #
-Gets a list of vNIC attachments on the instance
+# Gets a list of vNIC attachments on the instance
 data "oci_core_vnic_attachments" "vnics" {
     compartment_id = "${var.compartment_ocid}"
     availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
