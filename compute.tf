@@ -8,7 +8,7 @@ resource "oci_core_instance" "tajVM" {
       source_type = "image"
       source_id = "${var.InstanceImageOCID[var.region]}"
     }
-
+}
 #   create_vnic_details {
 #     subnet_id = "${oci_core_subnet.tajSN.id}"
 #     display_name = "primaryvnic"
