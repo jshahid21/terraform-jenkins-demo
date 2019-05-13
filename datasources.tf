@@ -10,18 +10,18 @@
 # # }
 # #
 # #
-# # Gets a list of vNIC attachments on the instance
-# data "oci_core_vnic_attachments" "vnics" {
-#     compartment_id = "${var.compartment_ocid}"
-#     availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
-#     instance_id = "${oci_core_instance.tajVM.id}"
-# }
-#
-# # Gets the OCID of the first (default) vNIC
-# data "oci_core_vnic" "vnic" {
-#     vnic_id = "${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"
-# }
-#
-# output "instance_ip_address" {
-#     value = ["${data.oci_core_vnic.vnic.public_ip_address}"]
-# }
+# Gets a list of vNIC attachments on the instance
+data "oci_core_vnic_attachments" "vnics" {
+    compartment_id = "${var.compartment_ocid}"
+    availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
+    instance_id = "${oci_core_instance.tajVM.id}"
+}
+
+# Gets the OCID of the first (default) vNIC
+data "oci_core_vnic" "vnic" {
+    vnic_id = "${lookup(data.oci_core_vnic_attachments.vnics.vnic_attachments[0],"vnic_id")}"
+}
+
+output "instance_ip_address" {
+    value = ["${data.oci_core_vnic.vnic.public_ip_address}"]
+}
