@@ -1,14 +1,14 @@
-# #Gets a list of Availability Domains
-# data "oci_identity_availability_domains" "ADs" {
+#Gets a list of Availability Domains
+data "oci_identity_availability_domains" "ADs" {
+    compartment_id = "${var.compartment_ocid}"
+}
+
+# data "oci_core_security_lists" "tajSL" {
+#     #Required
 #     compartment_id = "${var.compartment_ocid}"
+#     vcn_id = "${oci_core_virtual_network.tajVCN.id}"
 # }
 #
-# # data "oci_core_security_lists" "tajSL" {
-# #     #Required
-# #     compartment_id = "${var.compartment_ocid}"
-# #     vcn_id = "${oci_core_virtual_network.tajVCN.id}"
-# # }
-# #
 # #
 # Gets a list of vNIC attachments on the instance
 # data "oci_core_vnic_attachments" "vnics" {
