@@ -3,7 +3,7 @@ resource "oci_core_instance" "tajVM" {
   compartment_id = "${var.compartment_ocid}"
   display_name = "APEXinstance"
   shape = "${var.InstanceShape}"
-  state = STOPPED
+  state = "STOPPED"
 
   source_details {
       source_type = "image"
