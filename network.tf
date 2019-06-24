@@ -62,7 +62,7 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     icmp_options {
-      "type" = 3
+      "type" = 1,3,4
       "code" = 4
     }
   }
@@ -73,7 +73,7 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     icmp_options {
-      "type" = 3
+      "type" = 1,3,4
       "code" = 4
     }
   }
