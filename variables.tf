@@ -6,7 +6,7 @@ variable "region" {}
 
 variable "compartment_ocid" {}
 variable "ssh_public_key" {
-    default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC25Yy2dfp1MMwrF4E/Xr2aiXnWw9fi6qA91q+lSFv8Bu9Prx3XiwMHoe5Jd1GcjrIyCqt3Crz1MCXFaCxen+r/ByUIPaGNKr78FPARqL6R6HO4yQJXva9Qn/PBdakui75fTUMs6uyK3vWSd9cEDEn026DRbi7WbFmXcY8TbeZuboSsps7jY2Lrs6I+/N9x3DpDEm68P8TKVyAPGtQAEIb1bhecwfIJFzSXpMdpTTMD5RJKlugKcqVURN5EwFLn0XBgRqDMy3jNma1h5lvVvSqQtT80o8Kl/JMzr4hVyNAUjsat2ChrH0emQ0Gef3bjQMI0GF6hpA3e15l6yuupXVKr id_rsa"
+    default = "<enter ssh public key>"
 }
 
 # Choose an Availability Domain
